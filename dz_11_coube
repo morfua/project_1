@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Кубик в Кубе</title>
+
+
+	</head>
+
+	<body>
+		<div id="box1" ></div>
+		<div id="box2"  ></div>
+		<div id="box3" ></div>
+		<div id="box4" ></div>
+	</body>
+
+
+		<script>
+
+			let bills = document.querySelectorAll("#box1, #box2, #box3");
+			let bill_acc = document.getElementById("box4");
+
+
+			for (bill of bills) {
+				let objStyles = getComputedStyle(bill,'background'); //забираем стили у bill по background
+					console.log(objStyles);
+					bill.onmousedown = function (e) {
+					bill = e.currentTarget;
+					bill.style.position = "absolute";
+					bill.style.zIndex = 10; //т.е наш куб будет при перетаскивании всегда выше других по z на 10
+
+
+					document.addEventListener("mousemove", moveAt);
+
+					bill.onmouseup = function () {
+						document.removeEventListener("mousemove", moveAt);
+						bill.style.zIndex = 1; //сбрасываем z индекс
+
+						let bill_top = bill.getBoundingClientRect().top; //получаем координаты верхней части мелкого квадрата
+						let bill_left = bill.getBoundingClientRect().left;
+						let bill_right = bill.getBoundingClientRect().right;
+						let bill_bottom = bill.getBoundingClientRect().bottom;
+
+						let bill_acc_top = bill_acc.getBoundingClientRect().top; //получаем координаты верхней части большого квадрата box4
+						let bill_acc_left = bill_acc.getBoundingClientRect().left;
+						let bill_acc_right = bill_acc.getBoundingClientRect().right;
+						let bill_acc_bottom =bill_acc.getBoundingClientRect().bottom;
+
+
+
+						if (
+							bill_top > bill_acc_top &&
+							bill_left > bill_acc_left &&
+							bill_right < bill_acc_right &&
+							bill_bottom < bill_acc_bottom
+						) {bill.hidden = true;box4.style.background = objStyles.background;}
+					};
+
+
+					function moveAt(event) {
+						let x = event.clientX - 100;
+						let y = event.clientY - 100;
+						bill.style.top = y + "px";
+						bill.style.left = x + "px";
+					}
+
+				};
+
+
+			}
+		</script>
+	</body>
+</html>
