@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+			integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<title>АКД-СФД</title>
+		<style>
+			.about .about-img {
+				width: 100%;
+			}
+			li {
+				list-style-type: none; /* Убираем маркеры */
+			}
+			body {
+				font-family: "roboto", sans-serif;
+			}
+			nav {
+				font-size: 16px;
+				color: #808492;
+			}
+			.navbar {
+				color: #808492;
+			}
+			.nav-link {
+				color: black;
+			}
+			.container {
+				max-width: 720px;
+			}
+			.main-banner {
+				background: url(/img/akd4.jpg) no-repeat top center;
+				background-size: cover;
+				min-height: 820px;
+			}
+			.main-banner2 {
+				background: url(/img/akd5.jpg) no-repeat top center;
+				background-size: cover;
+				min-height: 820px;
+			}
+			.main-banner-text-wrap {
+				transform: translateY(300px);
+			}
+
+			.main-banner-text-wrap ul {
+				font-size: 30px;
+				max-width: 510px;
+				color: #fff;
+				font-family: Geometria-Bold, sans-serif;
+				margin-left: 200px;
+				padding: 0px 0 50px 30px;
+			}
+			@media (max-width: 1305px) {
+				.main-banner-text-wrap ul {
+					margin-left: 100px;
+					padding: 0px 0 50px 30px;
+				}
+			}
+			@media (max-width: 1060px) {
+				.main-banner-text-wrap ul {
+					margin-left: 20px;
+					padding: 0px 0 50px 30px;
+				}
+			}
+
+			.main-banner-text-wrap p {
+				margin-top: 0;
+				margin-bottom: 1rem;
+				font-weight: 300;
+				font-size: 20px;
+				font-family: Geometria-LightItalic, sans-serif;
+				color: #fff;
+				display: block;
+				margin-block-start: 1em;
+				margin-block-end: 1em;
+				margin-inline-start: 0px;
+				margin-inline-end: 0px;
+				margin-left: 150px;
+				padding: 0px 0 50px 30px;
+			}
+
+			@media (max-width: 1305px) {
+				.main-banner-text-wrap p {
+					margin-left: 100px;
+					padding: 0px 0 50px 30px;
+				}
+			}
+			@media (max-width: 1060px) {
+				.main-banner-text-wrap p {
+					margin-left: 20px;
+					padding: 0px 0 50px 30px;
+				}
+			}
+
+			form {
+				transform: translateY(300px);
+				filter: drop-shadow(2px 4px 16px hsla(0deg, 0%, 0%, 0.5));
+				max-width: 350px;
+				padding: 0px 0 50px 30px;
+			}
+
+			.fa-solid {
+				background-color: #ffc341;
+				color: #fff;
+
+				display: inline-block;
+				border-top: 3px solid #ffd478;
+				border-bottom: 3px solid #e5a42f;
+				border-right: 1px solid #e5a42f;
+				border-left: 1px solid #e5a42f;
+				font-family: Geometria-Medium, sans-serif;
+				-webkit-box-shadow: 0 5px 10px 0 rgb(50 50 50 / 40%);
+				box-shadow: 0 5px 10px 0rgba (50, 50, 50, 0.4);
+				cursor: pointer;
+				text-decoration: none;
+				text-align: center;
+			}
+			span {
+				color: #ffc341;
+			}
+			h1 {
+				font-size: 2.5rem;
+				line-height: 1.2;
+				color: inherit;
+				margin-top: 100px;
+			}
+			.modal {
+				display: none;
+				background: #41484e;
+				position: fixed;
+				z-index: 99999;
+			}
+			.modal_vis {
+				display: block;
+			}
+			.body_block {
+				overflow: hidden;
+				margin-right: 17px;
+			}
+			#close_modal {
+				color: #ffc341;
+				font-size: 40px;
+				font-weight: bold;
+				font-family: Times, sans-serif;
+				border-radius: 50%;
+				border: 4px solid #ffc341;
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				margin: 20px;
+				cursor: pointer;
+				position: absolute;
+				right: 0;
+				transform: rotate(45deg);
+				transition: all 0.6s;
+				box-sizing: content-box;
+			}
+			#close_modal:hover {
+				color: #fff;
+				border: 4px solid #fff;
+				transform: rotate(135deg);
+			}
+			.modal_txt {
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 16px 20px rgba(0, 0, 0, 0.2);
+				background: #fff;
+				padding: 30px;
+				margin: 100px auto;
+				max-width: 800px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- NAV MENU START -->
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<!-- bg-light  настроим фоновый цвет -->
+				<nav class="navbar navbar-light">
+					<!-- bg-light -->
+					<a class="navbar" href="#">
+						<img
+							src="/img/akd1.png"
+							width="30"
+							height="30"
+							class="d-inline-block align-top"
+							alt=""
+						/>
+						Аварийный комплект документации-СФД
+					</a>
+				</nav>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Переключатель навигации"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#"> <span class="sr-only">(текущая)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#"></a>
+						</li>
+					</ul>
+
+					<div class="nav-link">
+						<a>+7 (931) 313-18-84</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<div class="main-banner">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="main-banner-text-wrap">
+						<ul>
+							<li><span>»</span> под ключ</li>
+							<li><span>»</span> реальные сроки</li>
+							<li><span>»</span> отменное качество</li>
+						</ul>
+						<p>
+							Мы предлагаем услуги подготовки АКД <br />
+							по самым выгодным ценам!
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-7">
+					<form action="send.php" method="POST">
+						<div>
+							<input
+								class="form-control"
+								type="text"
+								class="form-control name="
+								user_Name
+								placeholder="Как к вам можно обращаться:"
+							/>
+						</div>
+						<div>
+							<input type="phone" class="form-control name=" user_Phone placeholder="Телефон:" />
+						</div>
+						<div>
+							<input type="email" class="form-control name=" user_Email placeholder="Email:" />
+						</div>
+						<div>
+							<input type="submit" class="form-control fa-solid" value="Оставить заявку" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container"></div>
+		<div class="main-banner2">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<img src="/img/akd7.jpg" alt="Картинка плоттера" class="img-fluid" />
+				</div>
+				<div class="col-12 col-md-6 p-5">
+					<h1>
+						<a class="open_modal" href="#open">О компании</a>
+					</h1>
+
+					<div id="modal" class="modal bounceIn">
+						<div id="close_modal">+</div>
+						<div class="modal_txt">
+							Мы ведем разработку Аварийных комплектов документации (АКД) для страхового фонда
+							документации (СФД) с 2008 года. Все работы выполняем самостоятельно под ключ,
+							предоставляя заказчику готовый комплект документации на бумажном носителе.
+							Значительное преимущество нашей компании - долгосрочное прямое сотрудничество.
+							Выполнеяем работы по договору. Мы не только решим все задачи, касательно подготовки и
+							сдачи АКД, но и с удовольствием проконсультируем по вопросам, наиболее часто
+							встречающиеся у наших клиентов.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			let open_modal = document.querySelectorAll(".open_modal");
+			let close_modal = document.getElementById("close_modal");
+			let modal = document.getElementById("modal");
+			let body = document.getElementsByTagName("body")[0];
+			for (let i = 0; i < open_modal.length; i++) {
+				open_modal[i].onclick = function () {
+					// клик на открытие
+					modal.classList.add("modal_vis"); // добавляем видимость окна
+					modal.classList.remove("bounceOutDown"); // удаляем эффект закрытия
+					body.classList.add("body_block"); // убираем прокрутку
+				};
+			}
+			close_modal.onclick = function () {
+				// клик на закрытие
+				modal.classList.add("bounceOutDown"); // добавляем эффект закрытия
+				window.setTimeout(function () {
+					// удаляем окно через полсекунды (чтобы увидеть эффект закрытия).
+					modal.classList.remove("modal_vis");
+					body.classList.remove("body_block"); // возвращаем прокрутку
+				}, 500);
+			};
+		</script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
